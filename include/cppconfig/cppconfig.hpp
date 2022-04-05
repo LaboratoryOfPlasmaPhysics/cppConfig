@@ -36,9 +36,19 @@ inline Config from_json(const std::string& json)
     return config_json::load_config<Config>(json);
 }
 
+inline Config from_json(const std::filesystem::path& json_file)
+{
+    return config_json::load_config<Config>(json_file);
+}
+
 inline Config from_yaml(const std::string& yaml)
 {
-    // return details::load_config(json::parse(json));
     return config_yaml::load_config<Config>(yaml);
 }
+
+inline Config from_yaml(const std::filesystem::path& yaml_file)
+{
+    return config_yaml::load_config<Config>(yaml_file);
+}
+
 }
