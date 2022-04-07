@@ -41,6 +41,16 @@ inline Config from_json(const std::filesystem::path& json_file)
     return config_json::load_config<Config>(json_file);
 }
 
+inline auto to_json(const Config& cfg)
+{
+    return config_json::save_config(cfg);
+}
+
+inline auto to_json(const std::filesystem::path& json_file, const Config& cfg)
+{
+    return config_json::save_config(json_file, cfg);
+}
+
 inline Config from_yaml(const std::string& yaml)
 {
     return config_yaml::load_config<Config>(yaml);
